@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1440">
+<title>Portfolio — Natalia Lefterova</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Raleway', sans-serif;
+  color: #1B1B1B;
+  background: #E8E8E8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 0;
+}
+
+/* Each frame is a "page" */
+.frame {
+  width: 1440px;
+  background: #FFFFFF;
+  margin-bottom: 40px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 40px rgba(0,0,0,0.08);
+}
+.frame.dark { background: #1B1B1B; }
+.frame.light-bg { background: #F5F5F5; }
+
+/* Frame labels for Figma reference */
+.frame-label {
+  position: absolute;
+  top: -28px;
+  left: 0;
+  font-size: 12px;
+  color: #999;
+  font-family: monospace;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Typography */
+h1 { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 72px; line-height: 1.1; }
+h2 { font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 48px; line-height: 1.2; }
+h3 { font-family: 'Raleway', sans-serif; font-weight: 600; font-size: 32px; line-height: 1.3; }
+h4 { font-family: 'Raleway', sans-serif; font-weight: 500; font-size: 24px; line-height: 1.4; }
+p { font-size: 16px; line-height: 1.6; color: #4A4A4A; }
+.small { font-size: 14px; color: #747373; }
+.caption { font-size: 12px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: #A4B494; }
+
+/* Colors */
+.sage { color: #A4B494; }
+.beige { color: #EAD3B8; }
+
+/* Divider */
+.divider {
+  width: 60px;
+  height: 2px;
+  background: #A4B494;
+  margin: 16px auto 0;
+}
+.divider-left {
+  width: 60px;
+  height: 2px;
+  background: #A4B494;
+  margin: 16px 0 0;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  background: #A4B494;
+  color: #fff;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 16px 32px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+.btn-text {
+  display: inline-block;
+  color: #A4B494;
+  font-weight: 500;
+  font-size: 14px;
+  text-decoration: underline;
+  margin-left: 16px;
+}
+
+/* Cards */
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+}
+
+/* Tags */
+.tags { display: flex; flex-wrap: wrap; gap: 10px; }
+.tag {
+  background: #FFFFFF;
+  border: 1px solid #EAD3B8;
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #4A4A4A;
+}
+
+/* Grid helpers */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+.grid-2x3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+
+/* Phone mockups */
+.phone-row {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+}
+.phone {
+  width: 220px;
+  height: 476px;
+  border-radius: 28px;
+  border: 2px solid #F5F5F5;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+  overflow: hidden;
+  background: #fff;
+}
+.phone img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: top;
+  height: 100%;
+}
+
+/* Image containers */
+.img-card {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+}
+.img-card img {
+  width: 100%;
+  display: block;
+}
+
+.browser-frame {
+  border-radius: 12px 12px 0 0;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  background: #fff;
+}
+.browser-bar {
+  height: 36px;
+  background: #F5F5F5;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  gap: 8px;
+}
+.browser-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #DDD;
+}
+.browser-frame img {
+  width: 100%;
+  display: block;
+}
+
+/* Meta info */
+.meta {
+  display: flex;
+  gap: 24px;
+  font-size: 14px;
+  color: #747373;
+}
+.meta span { white-space: nowrap; }
+
+/* Section spacing */
+.section { padding-top: 60px; }
+.section-header { padding-top: 80px; text-align: center; }
+
+/* Before/After */
+.before-after {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 16px;
+  align-items: center;
+}
+.before-after .arrow {
+  font-size: 32px;
+  color: #A4B494;
+  font-weight: 300;
+}
+.ba-label {
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #747373;
+  margin-bottom: 8px;
+}
+
+/* Footer styles */
+.dark h2 { color: #FFFFFF; }
+.dark p, .dark a { color: #EAD3B8; }
+.dark .small { color: #747373; }
+
+/* Nav */
+nav {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #F5F5F5;
+  padding: 0 150px;
+}
+nav .logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: 24px;
+  color: #1B1B1B;
+}
+nav .nav-links {
+  display: flex;
+  gap: 40px;
+}
+nav .nav-links a {
+  font-size: 14px;
+  font-weight: 500;
+  color: #4A4A4A;
+  text-decoration: none;
+}
+
+/* Dropdown */
+.dropdown {
+  position: relative;
+}
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: -12px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  padding: 8px 0;
+  min-width: 180px;
+  z-index: 100;
+  padding-top: 16px;
+}
+.dropdown-menu::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 0;
+  right: 0;
+  height: 16px;
+}
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+.dropdown-menu a {
+  display: block;
+  padding: 8px 20px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #4A4A4A;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.dropdown-menu a:hover {
+  background: #F5F5F5;
+  color: #A4B494;
+}
+
+/* Decorative line */
+.deco-line {
+  width: 200px;
+  height: 1px;
+  background: #EAD3B8;
+  margin: 0 auto;
+}
+
+/* Wireframe to final arrow */
+.evolution {
+  display: grid;
+  grid-template-columns: 1fr 60px 1fr;
+  gap: 0;
+  align-items: start;
+}
+.evolution .arrow-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-size: 40px;
+  color: #A4B494;
+}
+
+.img-contain {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #EAD3B8;
+}
+.img-contain img {
+  width: 100%;
+  display: block;
+}
+
+.loyalty-stack {
+  display: flex;
+  justify-content: center;
+  gap: -20px;
+  position: relative;
+}
+.loyalty-stack .loyalty-card {
+  width: 280px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.1);
+}
+.loyalty-stack .loyalty-card:nth-child(1) { transform: rotate(-3deg); z-index: 1; }
+.loyalty-stack .loyalty-card:nth-child(2) { transform: rotate(0deg); z-index: 2; margin-left: -30px; }
+.loyalty-stack .loyalty-card:nth-child(3) { transform: rotate(3deg); z-index: 1; margin-left: -30px; }
+.loyalty-card img { width: 100%; display: block; }
+
+/* Image grid for boats */
+.boat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+}
+.boat-grid .img-item {
+  border-radius: 8px;
+  overflow: hidden;
+  height: 240px;
+}
+.boat-grid .img-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.contact-block {
+  text-align: center;
+  padding: 80px 0;
+}
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-top: 32px;
+}
+.contact-info a {
+  font-size: 18px;
+  color: #EAD3B8;
+  text-decoration: none;
+}
+.socials {
+  display: flex;
+  gap: 24px;
+  margin-top: 32px;
+  justify-content: center;
+}
+.socials a {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #4A4A4A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #747373;
+  text-decoration: none;
+  font-size: 14px;
+}
+</style>
+</head>
+<body>
+
+<!-- ==================== FRAME 1: HERO ==================== -->
+<div class="frame" style="height: 900px; position: relative;">
+  <div class="frame-label">Frame 1 — Обложка / Hero (1440 x 900)</div>
+  <nav>
+    <div class="logo">NL</div>
+    <div class="nav-links">
+      <div class="dropdown">
+        <a href="#" style="cursor: pointer;">Проекты &#9662;</a>
+        <div class="dropdown-menu">
+          <a href="#organa">Organa Health</a>
+          <a href="#pawsup">Paws Up</a>
+          <a href="#pdp">Place De Paris</a>
+          <a href="#kartel">Kartel Boats</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <a href="#about" style="cursor: pointer;">Обо мне &#9662;</a>
+        <div class="dropdown-menu">
+          <a href="#about">Обо мне</a>
+          <a href="#process">Мой процесс</a>
+          <a href="#deliverables">Окончание работы</a>
+        </div>
+      </div>
+      <a href="#contacts">Контакты</a>
+    </div>
+  </nav>
+
+  <div style="display: flex; align-items: center; height: calc(900px - 64px); padding: 0 150px;">
+    <!-- Left column 60% -->
+    <div style="flex: 0 0 60%;">
+      <h1>Наталия<br>Лефтерова</h1>
+      <h4 class="sage" style="margin-top: 16px;">UX/UI Дизайнер</h4>
+      <p style="margin-top: 24px; max-width: 500px;">
+        Создаю продуманные и эстетичные цифровые продукты. Специализируюсь на дизайне сайтов, мобильных приложений и брендинге. Работаю с реалистичной AI-генерацией изображений.
+      </p>
+      <div style="margin-top: 40px;">
+        <a href="#organa" class="btn">Смотреть проекты</a>
+        <a href="#" class="btn-text" onclick="document.getElementById('contactModal').style.display='flex'; return false;">Связаться</a>
+      </div>
+    </div>
+    <!-- Right column 40% — Isometric iMac mockup -->
+    <div style="flex: 0 0 40%; display: flex; align-items: center; justify-content: center; position: relative; height: 520px;">
+
+      <!-- Large background rectangle -->
+      <div style="position: absolute; top: 10px; right: -30px; width: 380px; height: 300px; background: linear-gradient(135deg, #A4B494, #8fa882); border-radius: 16px; transform: perspective(900px) rotateY(-18deg) rotateX(6deg); opacity: 0.35; z-index: 0;"></div>
+      <!-- Mid background rectangle -->
+      <div style="position: absolute; top: 40px; right: 10px; width: 280px; height: 220px; background: linear-gradient(135deg, #c8d4bb, #A4B494); border-radius: 12px; transform: perspective(900px) rotateY(-18deg) rotateX(6deg); opacity: 0.25; z-index: 0;"></div>
+      <!-- Bottom-left decorative card -->
+      <div style="position: absolute; bottom: 50px; left: -10px; width: 160px; height: 100px; background: linear-gradient(135deg, #EAD3B8, #dcc5a8); border-radius: 10px; transform: perspective(900px) rotateY(-18deg) rotateX(6deg) rotate(-5deg); opacity: 0.4; z-index: 0;"></div>
+      <!-- Small floating cards top-right -->
+      <div style="position: absolute; top: 20px; right: 0px; width: 70px; height: 50px; background: #EAD3B8; border-radius: 6px; transform: perspective(900px) rotateY(-18deg) rotateX(6deg) rotate(-15deg); opacity: 0.5; z-index: 2;"></div>
+      <div style="position: absolute; top: 35px; right: 20px; width: 55px; height: 40px; background: #A4B494; border-radius: 5px; transform: perspective(900px) rotateY(-18deg) rotateX(6deg) rotate(-8deg); opacity: 0.35; z-index: 2;"></div>
+
+      <!-- Isometric scene wrapper -->
+      <div style="transform: perspective(1000px) rotateY(-16deg) rotateX(6deg); position: relative; z-index: 1;">
+
+        <!-- iMac Monitor -->
+        <div style="width: 400px; position: relative;">
+          <!-- Outer shell — sage colored like reference -->
+          <div style="background: linear-gradient(160deg, #b8c9a8, #A4B494); border-radius: 18px; padding: 14px 14px 30px; box-shadow: 0 20px 60px rgba(0,0,0,0.18), -6px 6px 30px rgba(0,0,0,0.1); position: relative;">
+            <!-- Inner bezel -->
+            <div style="background: #f8f8f8; border-radius: 10px; padding: 8px 8px 8px; position: relative;">
+              <!-- Camera -->
+              <div style="width: 7px; height: 7px; background: #444; border-radius: 50%; margin: 0 auto 6px; box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);"></div>
+              <!-- Screen -->
+              <div style="border-radius: 6px; overflow: hidden; box-shadow: inset 0 0 8px rgba(0,0,0,0.05);">
+                <img src="images/kartel_site_16.09.10.png" style="width: 100%; display: block; object-fit: cover; object-position: top; height: 240px;">
+              </div>
+            </div>
+            <!-- Chin logo area -->
+            <div style="text-align: center; margin-top: 6px;">
+              <div style="width: 12px; height: 12px; background: rgba(255,255,255,0.3); border-radius: 50%; margin: 0 auto;"></div>
+            </div>
+          </div>
+          <!-- Stand -->
+          <div style="width: 50px; height: 40px; background: linear-gradient(to right, #97b085, #A4B494, #97b085); margin: 0 auto; clip-path: polygon(15% 0%, 85% 0%, 100% 100%, 0% 100%);"></div>
+          <!-- Base -->
+          <div style="width: 140px; height: 10px; background: linear-gradient(to bottom, #A4B494, #8fa882); margin: -2px auto 0; border-radius: 50%; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></div>
+        </div>
+
+        <!-- Keyboard -->
+        <div style="width: 280px; height: 55px; background: linear-gradient(160deg, #b8c9a8, #A4B494); border-radius: 8px; margin: 20px auto 0; margin-left: -30px; box-shadow: 0 6px 16px rgba(0,0,0,0.12); padding: 8px 10px; display: grid; grid-template-columns: repeat(15, 1fr); grid-template-rows: repeat(4, 1fr); gap: 2px;">
+          <!-- 60 keys -->
+          <div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div><div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div><div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div><div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div><div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div><div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div><div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div><div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div><div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div><div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div><div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div><div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div><div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div><div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div><div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div>
+          <div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div><div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div><div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div><div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div><div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div><div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div><div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div><div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div><div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div><div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div><div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div><div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div><div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div><div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div><div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div>
+          <div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div><div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div><div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div><div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div><div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div><div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div><div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div><div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div><div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div><div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div><div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div><div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div><div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div><div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div><div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div>
+          <div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div><div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div><div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div><div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div><div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div><div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div><div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div><div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div><div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div><div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div><div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div><div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div><div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div><div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div><div style="background: rgba(255,255,255,0.3); border-radius: 2px;"></div>
+        </div>
+
+        <!-- Mouse -->
+        <div style="position: absolute; right: -20px; bottom: 5px; width: 32px; height: 50px; background: linear-gradient(160deg, #f0e0cc, #EAD3B8); border-radius: 16px; box-shadow: 0 6px 14px rgba(0,0,0,0.12); border: 1.5px solid rgba(0,0,0,0.06);">
+          <div style="width: 1px; height: 14px; background: rgba(0,0,0,0.08); margin: 10px auto 0;"></div>
+        </div>
+      </div>
+
+      <!-- Decorative lines right -->
+      <div style="position: absolute; right: 5px; top: 45%; display: flex; gap: 5px; z-index: 0; transform: perspective(900px) rotateY(-18deg);">
+        <div style="width: 2px; height: 50px; background: #1B1B1B; opacity: 0.15; border-radius: 1px;"></div>
+        <div style="width: 2px; height: 50px; background: #1B1B1B; opacity: 0.1; border-radius: 1px;"></div>
+        <div style="width: 2px; height: 50px; background: #1B1B1B; opacity: 0.07; border-radius: 1px;"></div>
+      </div>
+
+      <!-- Side line accent left -->
+      <div style="position: absolute; left: 20px; top: 30%; width: 2px; height: 80px; background: #1B1B1B; opacity: 0.08; border-radius: 1px; z-index: 0;"></div>
+      <div style="position: absolute; left: 20px; top: 30%; width: 2px; height: 80px; border-left: 2px solid rgba(0,0,0,0.05); border-radius: 1px; z-index: 0; transform: translateX(-6px);"></div>
+    </div>
+  </div>
+
+  <div class="deco-line" style="position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);"></div>
+</div>
+
+
+<!-- ==================== FRAME 2: ABOUT ==================== -->
+<div id="about" class="frame light-bg" style="padding-bottom: 80px;">
+  <div class="frame-label">Frame 2 — Обо мне (1440 x auto)</div>
+  <div class="section-header">
+    <h2>Обо мне</h2>
+    <div class="divider"></div>
+  </div>
+
+  <div class="container">
+    <div class="grid-2" style="margin-top: 48px;">
+      <div>
+        <p>
+          UX/UI Designer с опытом в создании дизайнов для веб-сайтов, мобильных приложений и брендинга.
+          Образование в области английской филологии и UX-дизайна. Работаю в Figma, создаю
+          сайты, презентации, баннеры и брендинг-материалы.
+        </p>
+        <p style="margin-top: 16px;">
+          Дополнительно занимаюсь реалистичной AI-генерацией изображений для коммерческих проектов.
+        </p>
+      </div>
+      <div>
+        <h4 style="font-size: 20px; margin-bottom: 20px;">Навыки и инструменты</h4>
+        <div class="tags">
+          <span class="tag">Figma</span>
+          <span class="tag">UX Research</span>
+          <span class="tag">UI Design</span>
+          <span class="tag">Wireframing</span>
+          <span class="tag">Prototyping</span>
+          <span class="tag">Брендинг</span>
+          <span class="tag">Копирайтинг</span>
+          <span class="tag">AI Image Generation</span>
+          <span class="tag">Vibe Design</span>
+          <span class="tag">User Testing</span>
+        </div>
+        <h4 style="font-size: 20px; margin-top: 32px; margin-bottom: 16px;">Языки</h4>
+        <div class="tags">
+          <span class="tag">Русский — родной</span>
+          <span class="tag">English — fluent</span>
+          <span class="tag">Français — intermédiaire</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ==================== FRAME 3: ORGANA HEALTH ==================== -->
+<div id="organa" class="frame" style="padding-bottom: 80px;">
+  <div class="frame-label">Frame 3 — Organa Health (1440 x auto)</div>
+  <div class="container">
+    <div style="padding-top: 80px;">
+      <p class="caption">Мобильное приложение</p>
+      <h2 style="margin-top: 8px;">Organa Health</h2>
+      <p style="margin-top: 16px; max-width: 700px;">
+        iOS приложение для ментального здоровья женщин. Полный цикл дизайна:
+        исследование, персоны, вайрфреймы, UI-дизайн и прототип.
+      </p>
+      <div class="meta" style="margin-top: 12px;">
+        <span>Роль: UX/UI дизайнер</span>
+        <span>Год: 2026 (в разработке)</span>
+        <span>Инструменты: Figma</span>
+      </div>
+    </div>
+
+    <!-- Group 1: Login Screens + Dashboard -->
+    <div class="section">
+      <h3>Вход в приложение</h3>
+      <p style="margin-top: 8px; margin-bottom: 24px;">От главного экрана через авторизацию к панели управления.</p>
+      <div class="phone-row">
+        <div style="text-align: center;">
+          <div class="phone"><img src="images/organa_welcome.png"></div>
+          <p class="small" style="margin-top: 12px;">Главный экран</p>
+        </div>
+        <div style="text-align: center;">
+          <div class="phone"><img src="images/organa_login_actual.png"></div>
+          <p class="small" style="margin-top: 12px;">Вход</p>
+        </div>
+        <div style="text-align: center;">
+          <div class="phone"><img src="images/organa_login.png"></div>
+          <p class="small" style="margin-top: 12px;">Регистрация</p>
+        </div>
+        <div style="text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+          <div style="color: #A4B494; font-size: 28px; margin-bottom: 8px;">&rarr;</div>
+        </div>
+        <div style="text-align: center;">
+          <div class="phone"><img src="images/Dashboard 2.0.png"></div>
+          <p class="small" style="margin-top: 12px;">Панель управления</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Group 2: Guided Onboarding -->
+    <div class="section">
+      <h3>Пошаговое знакомство</h3>
+      <p style="margin-top: 8px; margin-bottom: 24px;">Знакомство с пользователем: возраст, опыт терапии, текущее состояние.</p>
+      <div class="phone-row">
+        <div style="text-align: center;">
+          <div class="phone"><img src="images/organa_onboarding.png"></div>
+          <p class="small" style="margin-top: 12px;">Этап жизни</p>
+        </div>
+        <div style="text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+          <div style="color: #A4B494; font-size: 28px;">&rarr;</div>
+        </div>
+        <div style="text-align: center;">
+          <div class="phone"><img src="images/organa_onboarding7.png"></div>
+          <p class="small" style="margin-top: 12px;">Опыт с терапией</p>
+        </div>
+        <div style="text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+          <div style="color: #A4B494; font-size: 28px;">&rarr;</div>
+        </div>
+        <div style="text-align: center;">
+          <div class="phone"><img src="images/organa_onboarding2.png"></div>
+          <p class="small" style="margin-top: 12px;">Настроение</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ==================== FRAME 4: PAWS UP ==================== -->
+<div id="pawsup" class="frame light-bg" style="padding-bottom: 80px;">
+  <div class="frame-label">Frame 4 — Paws Up (1440 x auto)</div>
+  <div class="container">
+    <div style="padding-top: 80px;">
+      <p class="caption">Веб-дизайн / Редизайн</p>
+      <h2 style="margin-top: 8px;">Paws Up</h2>
+      <p style="margin-top: 16px; max-width: 700px;">
+        Оптимизация дизайна интернет-магазина для домашних животных.
+        Редизайн навигации, хедера/футера и системы взаимодействий.
+      </p>
+      <div class="meta" style="margin-top: 12px;">
+        <span>Роль: UX/UI дизайнер</span>
+        <span>Сайт: <a href="https://paws-up.shop" target="_blank" style="color: #747373; text-decoration: underline;">paws-up.shop</a></span>
+        <span>Инструменты: Figma</span>
+      </div>
+    </div>
+
+    <!-- Navigation Before/After -->
+    <div class="section">
+      <h3>Навигация: до и после</h3>
+      <p style="margin-top: 8px; margin-bottom: 24px;">Оригинальное выпадающее меню было перегружено и запутанно. Редизайн упростил структуру и сделал навигацию интуитивной.</p>
+      <div style="display: grid; grid-template-columns: 1fr 40px 1fr; gap: 16px; align-items: start;">
+        <p class="ba-label">До</p>
+        <div></div>
+        <p class="ba-label">После</p>
+        <div class="img-card"><img src="images/pawsup_nav_before.png" style="width: 100%;"></div>
+        <div class="arrow" style="text-align: center; align-self: center; font-size: 32px; color: #A4B494;">&rarr;</div>
+        <div class="img-card"><img src="images/pawsup_nav_after.png" style="width: 100%;"></div>
+      </div>
+    </div>
+
+    <!-- Footer Before/After -->
+    <div class="section">
+      <h3>Футер: до и после</h3>
+      <p style="margin-top: 8px; margin-bottom: 24px;">Минимальный оригинальный футер заменён на структурированный блок с навигацией, подпиской на рассылку и контактной информацией.</p>
+      <div style="display: grid; grid-template-columns: 1fr 40px 1fr; gap: 16px; align-items: start;">
+        <p class="ba-label">До</p>
+        <div></div>
+        <p class="ba-label">После</p>
+        <div class="img-card"><img src="images/pawsup_footer_before.png" style="width: 100%;"></div>
+        <div class="arrow" style="text-align: center; align-self: center; font-size: 32px; color: #A4B494;">&rarr;</div>
+        <div class="img-card"><img src="images/pawsup_footer_after.png" style="width: 100%;"></div>
+      </div>
+    </div>
+
+    <!-- Custom Icons -->
+    <div class="section">
+      <h3>Кастомные иконки</h3>
+      <p style="margin-top: 8px; margin-bottom: 24px;">Векторные иконки для категорий товаров — заменяют текстовую навигацию, ускоряют сканирование страницы и масштабируются под любой экран.</p>
+      <div style="display: grid; grid-template-columns: 1fr 30px 1fr 30px 1fr; gap: 12px; align-items: start;">
+        <p class="ba-label">Создание иконок</p>
+        <div></div>
+        <p class="ba-label">Задуманное применение</p>
+        <div></div>
+        <p class="ba-label">Финальная версия на сайте</p>
+        <div class="card" style="padding: 16px; display: flex; align-items: center; justify-content: center;">
+          <img src="images/pawsup_icons.png" style="width: 100%; border-radius: 8px;">
+        </div>
+        <div style="text-align: center; align-self: center; font-size: 28px; color: #A4B494;">&rarr;</div>
+        <div class="img-card">
+          <img src="images/pawsup_forpets.png" style="width: 100%;">
+        </div>
+        <div style="text-align: center; align-self: center; font-size: 28px; color: #A4B494;">&rarr;</div>
+        <div class="card" style="padding: 16px; display: flex; align-items: center; justify-content: center;">
+          <img src="images/pawsup_icons_live.png" style="width: 100%; border-radius: 8px;">
+        </div>
+      </div>
+    </div>
+
+    <div class="section" style="padding-bottom: 80px;">
+      <h3>UI-дизайн для веб-страниц</h3>
+      <div style="margin-top: 24px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px;">
+        <div class="img-card" style="height: 400px; overflow: hidden;">
+          <img src="images/pawsup_ui_dog_grooming.png" style="width: 100%; object-fit: cover; object-position: top;">
+          <div style="padding: 12px 16px; background: #fff;"><p class="small">Dog Grooming</p></div>
+        </div>
+        <div class="img-card" style="height: 400px; overflow: hidden;">
+          <img src="images/pawsup_ui_services_&_price.png" style="width: 100%; object-fit: cover; object-position: top;">
+          <div style="padding: 12px 16px; background: #fff;"><p class="small">Services & Price</p></div>
+        </div>
+        <div class="img-card" style="height: 400px; overflow: hidden;">
+          <img src="images/pawsup_ui_client_testimonials_2.png" style="width: 100%; object-fit: cover; object-position: top;">
+          <div style="padding: 12px 16px; background: #fff;"><p class="small">Client Testimonials</p></div>
+        </div>
+        <div class="img-card" style="height: 400px; overflow: hidden;">
+          <img src="images/pawsup_ui_puppy_grooming.png" style="width: 100%; object-fit: cover; object-position: top;">
+          <div style="padding: 12px 16px; background: #fff;"><p class="small">Puppy Grooming</p></div>
+        </div>
+        <div class="img-card" style="height: 400px; overflow: hidden;">
+          <img src="images/pawsup_ui_price_list.png" style="width: 100%; object-fit: cover; object-position: top;">
+          <div style="padding: 12px 16px; background: #fff;"><p class="small">Price List</p></div>
+        </div>
+        <div class="img-card" style="height: 400px; overflow: hidden;">
+          <img src="images/pawsup_ui_faq_purchases_-_questions.png" style="width: 100%; object-fit: cover; object-position: top;">
+          <div style="padding: 12px 16px; background: #fff;"><p class="small">FAQ</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ==================== FRAME 5: PLACE DE PARIS ==================== -->
+<div id="pdp" class="frame" style="padding-bottom: 80px;">
+  <div class="frame-label">Frame 5 — Place De Paris (1440 x auto)</div>
+  <div class="container">
+    <div style="padding-top: 80px;">
+      <p class="caption">Брендинг + Веб-дизайн</p>
+      <h2 style="margin-top: 8px;">Place De Paris</h2>
+      <p style="margin-top: 16px; max-width: 700px;">
+        Полный цикл брендинга и веб-дизайна для салона красоты.
+        От разработки логотипа и фирменного стиля до вайрфреймов и финального прототипа.
+      </p>
+      <div class="meta" style="margin-top: 12px;">
+        <span>Роль: Дизайнер / Бренд-стратег</span>
+        <span>Инструменты: Figma</span>
+      </div>
+    </div>
+
+    <!-- Branding -->
+    <div class="section">
+      <h3>Айдентика</h3>
+      <p style="margin-top: 8px; margin-bottom: 24px;">Разработка визуальной идентичности бренда: логотипы, типографика, цветовая палитра, брендбук, печатные материалы и прайс-лист.</p>
+      <div class="grid-3" style="margin-top: 24px;">
+        <div class="card" style="padding: 16px;">
+          <p class="small" style="margin-bottom: 8px;">Логотипы</p>
+          <div style="height: 200px; border-radius: 8px; overflow: hidden;">
+            <img src="images/pdp_secondary_logos.png" style="width: 100%; height: 100%; object-fit: contain; background: #fff; display: block;">
+          </div>
+        </div>
+        <div class="card" style="padding: 16px;">
+          <p class="small" style="margin-bottom: 8px;">Типографика</p>
+          <div style="height: 200px; border-radius: 8px; overflow: hidden;">
+            <img src="images/pdp_font_styles.png" style="width: 100%; height: 100%; object-fit: contain; object-position: top left; display: block;">
+          </div>
+        </div>
+        <div class="card" style="padding: 16px;">
+          <p class="small" style="margin-bottom: 8px;">Цветовая палитра</p>
+          <div style="height: 200px; border-radius: 8px; overflow: hidden;">
+            <img src="images/pdp_colour_palette.png" style="width: 100%; height: 100%; object-fit: contain; object-position: top left; display: block;">
+          </div>
+        </div>
+      </div>
+      <div class="grid-3" style="margin-top: 24px;">
+        <div class="card" style="padding: 16px;">
+          <p class="small" style="margin-bottom: 8px;">Создание брендбука</p>
+          <div style="height: 200px; border-radius: 8px; overflow: hidden;">
+            <img src="images/pdp_brand_guidelines.png" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+          </div>
+        </div>
+        <div class="card" style="padding: 16px;">
+          <p class="small" style="margin-bottom: 8px;">Печатные материалы</p>
+          <div style="height: 200px; border-radius: 8px; overflow: hidden;">
+            <img src="images/pdp_printable_materials.png" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+          </div>
+        </div>
+        <div class="card" style="padding: 16px;">
+          <p class="small" style="margin-bottom: 8px;">Прайс-лист</p>
+          <div style="height: 200px; border-radius: 8px; overflow: hidden;">
+            <img src="images/pdp_price_list.png" style="width: 100%; height: 100%; object-fit: cover; object-position: top left; display: block;">
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="section" style="padding-bottom: 80px;">
+      <h3>UI-дизайн для веб-страниц</h3>
+      <div style="margin-top: 24px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px;">
+        <div class="img-card" style="height: 400px; overflow: hidden;">
+          <img src="images/pdp_ui_landing_page.png" style="width: 100%; object-fit: cover; object-position: top;">
+          <div style="padding: 12px 16px; background: #fff;"><p class="small">Landing Page</p></div>
+        </div>
+        <div class="img-card" style="height: 400px; overflow: hidden;">
+          <img src="images/pdp_ui_about_us.png" style="width: 100%; object-fit: cover; object-position: top;">
+          <div style="padding: 12px 16px; background: #fff;"><p class="small">About Us</p></div>
+        </div>
+        <div class="img-card" style="height: 400px; overflow: hidden;">
+          <img src="images/pdp_ui_services.png" style="width: 100%; object-fit: cover; object-position: top;">
+          <div style="padding: 12px 16px; background: #fff;"><p class="small">Services</p></div>
+        </div>
+        <div class="img-card" style="height: 400px; overflow: hidden;">
+          <img src="images/pdp_ui_products.png" style="width: 100%; object-fit: cover; object-position: top;">
+          <div style="padding: 12px 16px; background: #fff;"><p class="small">Products</p></div>
+        </div>
+        <div class="img-card" style="height: 400px; overflow: hidden;">
+          <img src="images/pdp_ui_gallery.png" style="width: 100%; object-fit: cover; object-position: top;">
+          <div style="padding: 12px 16px; background: #fff;"><p class="small">Gallery</p></div>
+        </div>
+        <div class="img-card" style="height: 400px; overflow: hidden;">
+          <img src="images/pdp_ui_meet_the_team.png" style="width: 100%; object-fit: cover; object-position: top;">
+          <div style="padding: 12px 16px; background: #fff;"><p class="small">Meet The Team</p></div>
+        </div>
+        <div class="img-card" style="height: 400px; overflow: hidden;">
+          <img src="images/pdp_ui_contact_us.png" style="width: 100%; object-fit: cover; object-position: top;">
+          <div style="padding: 12px 16px; background: #fff;"><p class="small">Contact Us</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ==================== FRAME 6: KARTEL BOATS ==================== -->
+<div id="kartel" class="frame light-bg" style="padding-bottom: 80px;">
+  <div class="frame-label">Frame 6 — Kartel Boats + AI (1440 x auto)</div>
+  <div class="container">
+    <div style="padding-top: 80px;">
+      <p class="caption">Веб-дизайн + AI Генерация</p>
+      <h2 style="margin-top: 8px;">Kartel Boats</h2>
+      <p style="margin-top: 16px; max-width: 700px;">
+        Дизайн сайтов для производителя лодок. Реалистичная AI-генерация
+        фотографий интерьеров и экстерьеров для маркетинговых материалов.
+      </p>
+      <div class="meta" style="margin-top: 12px;">
+        <span>Роль: Дизайнер / AI-художник</span>
+        <span>Сайты: <a href="https://kartelboats.ru" target="_blank" style="color: #747373; text-decoration: underline;">kartelboats.ru</a>, <a href="https://expedition65.ru" target="_blank" style="color: #747373; text-decoration: underline;">expedition65.ru</a> (в разработке)</span>
+        <span>Инструменты: Figma, AI</span>
+      </div>
+    </div>
+
+    <!-- Website creation -->
+    <div class="section">
+      <h3>Создание сайта</h3>
+      <p style="margin-top: 8px; margin-bottom: 24px;">Создание сайта с использованием AI-технологий (Gemini, Claude Code). С SEO и GEO оптимизацией.</p>
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px;">
+        <div class="img-card" style="overflow: hidden;">
+          <div style="height: 240px; overflow: hidden;">
+            <img src="images/kartel_site_16.09.10.png" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;">
+          </div>
+          <div style="padding: 12px 16px; background: #fff;"><p class="small">Главная страница</p></div>
+        </div>
+        <div class="img-card" style="overflow: hidden;">
+          <div style="height: 240px; overflow: hidden;">
+            <img src="images/kartel_site_16.09.26.png" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;">
+          </div>
+          <div style="padding: 12px 16px; background: #fff;"><p class="small">Линейка моделей</p></div>
+        </div>
+        <div class="img-card" style="overflow: hidden;">
+          <div style="height: 240px; overflow: hidden;">
+            <img src="images/kartel_site_16.09.44.png" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;">
+          </div>
+          <div style="padding: 12px 16px; background: #fff;"><p class="small">О компании</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AI Generated images -->
+    <div class="section">
+      <h3>AI-генерация изображений</h3>
+      <p style="margin-top: 8px; margin-bottom: 24px;">
+        Создание фотореалистичных изображений интерьеров и экстерьеров лодок для каталогов и маркетинговых материалов. Изображения идентичны оригинальным объектам с добавлением мебели и элементов декора.
+      </p>
+      <div class="boat-grid">
+        <div class="img-item"><img src="images/kartel_photo_1.jpg"></div>
+        <div class="img-item"><img src="images/kartel_photo_2.jpg"></div>
+        <div class="img-item"><img src="images/houseboat_exterior.jpeg"></div>
+        <div class="img-item"><img src="images/boat_enhanced1.jpeg"></div>
+        <div class="img-item"><img src="images/boat_enhanced2.jpeg"></div>
+        <div class="img-item"><img src="images/kartel_houseboat_exterior.jpg"></div>
+      </div>
+
+      <h4 style="margin-top: 32px;">Брендированные фотографии</h4>
+      <p style="margin-top: 8px; margin-bottom: 16px;">Интеграция брендированных элементов — текстиль, аксессуары — в AI-сгенерированные интерьеры для маркетинговых материалов.</p>
+      <div class="boat-grid" style="grid-template-columns: 1fr 1fr 1fr;">
+        <div class="img-item"><img src="images/houseboat_living.jpeg"></div>
+        <div class="img-item"><img src="images/houseboat_kitchen.jpeg"></div>
+        <div class="img-item"><img src="images/kartel_branded_3.jpg"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ==================== FRAME 7: PROCESS ==================== -->
+<div id="process" class="frame" style="padding-bottom: 80px;">
+  <div class="frame-label">Frame 7 — Мой процесс (1440 x auto)</div>
+  <div class="section-header">
+    <h2>Мой процесс</h2>
+    <div class="divider"></div>
+  </div>
+
+  <div class="container">
+    <p style="text-align: center; margin-top: 24px; max-width: 700px; margin-left: auto; margin-right: auto;">
+      В своей работе я следую дизайн-циклу, фокусируясь на пользователе на каждом этапе.
+      Провожу глубокое исследование пользователей и рынка, создаю карты эмпатии, анализирую конкурентов
+      и тестирую решения перед финализацией.
+    </p>
+
+    <!-- Design lifecycle visual -->
+    <div style="margin-top: 60px; position: relative; height: 280px; display: flex; align-items: center; justify-content: center;">
+
+      <!-- SVG wave connecting the circles -->
+      <svg viewBox="0 0 1000 240" style="position: absolute; width: 900px; height: 240px; top: 20px;" fill="none">
+        <path d="M 60 120 C 130 10, 200 10, 280 120 C 360 230, 430 230, 500 120 C 570 10, 640 10, 720 120 C 800 230, 870 230, 940 120" stroke="#A4B494" stroke-width="4" fill="none" opacity="0.5"/>
+      </svg>
+
+      <!-- Circles -->
+      <div style="display: flex; align-items: center; justify-content: space-between; width: 900px; position: relative; z-index: 1;">
+        <!-- 01 Empathise — large, dark sage -->
+        <div style="width: 140px; height: 140px; border-radius: 50%; background: #A4B494; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(164,180,148,0.3);">
+          <span style="font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.7); letter-spacing: 1px;">01</span>
+          <span style="font-size: 14px; font-weight: 600; color: #fff; letter-spacing: 2px; text-transform: uppercase; margin-top: 4px;">Эмпатия</span>
+        </div>
+
+        <!-- 02 Define — large, medium sage -->
+        <div style="width: 140px; height: 140px; border-radius: 50%; background: #8fa882; display: flex; flex-direction: column; align-items: center; justify-content: center; margin-top: -60px; box-shadow: 0 4px 20px rgba(143,168,130,0.3);">
+          <span style="font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.7); letter-spacing: 1px;">02</span>
+          <span style="font-size: 14px; font-weight: 600; color: #fff; letter-spacing: 2px; text-transform: uppercase; margin-top: 4px;">Анализ</span>
+        </div>
+
+        <!-- 03 Ideate — light sage -->
+        <div style="width: 140px; height: 140px; border-radius: 50%; background: #c8d4bb; display: flex; flex-direction: column; align-items: center; justify-content: center; margin-top: 60px; box-shadow: 0 4px 20px rgba(200,212,187,0.3);">
+          <span style="font-size: 13px; font-weight: 600; color: rgba(75,75,75,0.7); letter-spacing: 1px;">03</span>
+          <span style="font-size: 14px; font-weight: 600; color: #4A4A4A; letter-spacing: 2px; text-transform: uppercase; margin-top: 4px;">Идеация</span>
+        </div>
+
+        <!-- 04 Prototype — beige -->
+        <div style="width: 140px; height: 140px; border-radius: 50%; background: #EAD3B8; display: flex; flex-direction: column; align-items: center; justify-content: center; margin-top: -60px; box-shadow: 0 4px 20px rgba(234,211,184,0.3);">
+          <span style="font-size: 13px; font-weight: 600; color: rgba(75,75,75,0.7); letter-spacing: 1px;">04</span>
+          <span style="font-size: 14px; font-weight: 600; color: #4A4A4A; letter-spacing: 2px; text-transform: uppercase; margin-top: 4px;">Прототип</span>
+        </div>
+
+        <!-- 05 Test — dark sage -->
+        <div style="width: 140px; height: 140px; border-radius: 50%; background: #A4B494; display: flex; flex-direction: column; align-items: center; justify-content: center; margin-top: 60px; box-shadow: 0 4px 20px rgba(164,180,148,0.3);">
+          <span style="font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.7); letter-spacing: 1px;">05</span>
+          <span style="font-size: 14px; font-weight: 600; color: #fff; letter-spacing: 2px; text-transform: uppercase; margin-top: 4px;">Тест</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ==================== FRAME 8: RESEARCH MATERIALS ==================== -->
+<div class="frame light-bg" style="padding-bottom: 80px;">
+  <div class="frame-label">Frame 8 — Материалы исследований (1440 x auto)</div>
+  <div class="section-header">
+    <h2>Материалы исследований</h2>
+    <div class="divider"></div>
+  </div>
+
+  <div class="container">
+    <p style="text-align: center; margin-top: 24px; max-width: 700px; margin-left: auto; margin-right: auto;">
+      Примеры UX-исследований из реальных проектов: персоны, карты эмпатии, анализ болей и потребностей пользователей.
+    </p>
+
+    <div style="margin-top: 48px; display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 24px;">
+      <div class="img-card" style="overflow: hidden;">
+        <div style="height: 240px; overflow: hidden;">
+          <img src="images/process_frame_22.png" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;">
+        </div>
+        <div style="padding: 12px 16px; background: #fff;"><p class="small">Персоны пользователей</p></div>
+      </div>
+      <div class="img-card" style="overflow: hidden;">
+        <div style="height: 240px; overflow: hidden;">
+          <img src="images/process_frame_23.png" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;">
+        </div>
+        <div style="padding: 12px 16px; background: #fff;"><p class="small">Персоны пользователей</p></div>
+      </div>
+      <div class="img-card" style="overflow: hidden;">
+        <div style="height: 240px; overflow: hidden;">
+          <img src="images/process_frame_24.png" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;">
+        </div>
+        <div style="padding: 12px 16px; background: #fff;"><p class="small">Карты эмпатии</p></div>
+      </div>
+      <div class="img-card" style="overflow: hidden;">
+        <div style="height: 240px; overflow: hidden;">
+          <img src="images/process_frame_25.png" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;">
+        </div>
+        <div style="padding: 12px 16px; background: #fff;"><p class="small">Боли и потребности</p></div>
+      </div>
+    </div>
+
+    <!-- Arrow down -->
+    <div style="text-align: center; margin: 32px 0;">
+      <div style="font-size: 36px; color: #A4B494;">&darr;</div>
+    </div>
+
+    <!-- Affinity map -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;">
+      <div class="img-card" style="overflow: hidden; max-width: 400px;">
+        <img src="images/process_affinity_map.png" style="width: 100%; display: block;">
+      </div>
+      <div>
+        <p class="small" style="margin-bottom: 8px;">Карта аффинити</p>
+        <p>Все данные из исследований пользователей объединяются в карту аффинити для выявления ключевых паттернов и внедрения UX/UI решений, основанных на реальных болях и потребностях пользователей.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ==================== FRAME 9: PROTOTYPING ==================== -->
+<div class="frame" style="padding-bottom: 80px;">
+  <div class="frame-label">Frame 9 — Прототипирование (1440 x auto)</div>
+  <div class="section-header">
+    <h2>Процесс прототипирования</h2>
+    <div class="divider"></div>
+  </div>
+
+  <div class="container">
+    <p style="text-align: center; margin-top: 24px; max-width: 700px; margin-left: auto; margin-right: auto;">
+      Прототипирование проходит в три этапа: от рукописных вайрфреймов, где собираются все идеи,
+      через низкодетализированные прототипы с базовым расположением элементов,
+      к высокодетализированным прототипам с финальным дизайном.
+    </p>
+
+    <!-- Three stages with arrows -->
+    <div style="margin-top: 48px; display: grid; grid-template-columns: 1fr 40px 1fr 40px 1fr; gap: 0; align-items: start;">
+      <!-- Wireframes -->
+      <div>
+        <div class="img-card" style="overflow: hidden;">
+          <div style="height: 300px; overflow: hidden;">
+            <img src="images/proto_new_frame_1.png" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;">
+          </div>
+          <div style="padding: 12px 16px; background: #fff;"><p class="small">Вайрфреймы</p></div>
+        </div>
+        <p class="small" style="margin-top: 8px;">Сбор всех идей на одной доске — структура, расположение блоков, навигация.</p>
+      </div>
+
+      <!-- Arrow -->
+      <div style="display: flex; align-items: center; justify-content: center; height: 300px; font-size: 28px; color: #A4B494;">&rarr;</div>
+
+      <!-- Low-fi -->
+      <div>
+        <div class="img-card" style="overflow: hidden;">
+          <div style="height: 300px; overflow: hidden;">
+            <img src="images/proto_new_low_fi.png" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;">
+          </div>
+          <div style="padding: 12px 16px; background: #fff;"><p class="small">Низкодетализированные прототипы</p></div>
+        </div>
+        <p class="small" style="margin-top: 8px;">Базовое расположение элементов, структура страниц без визуального оформления.</p>
+      </div>
+
+      <!-- Arrow -->
+      <div style="display: flex; align-items: center; justify-content: center; height: 300px; font-size: 28px; color: #A4B494;">&rarr;</div>
+
+      <!-- High-fi -->
+      <div>
+        <div class="img-card" style="overflow: hidden;">
+          <div style="height: 300px; overflow: hidden;">
+            <img src="images/proto_new_frame_40.png" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;">
+          </div>
+          <div style="padding: 12px 16px; background: #fff;"><p class="small">Высокодетализированные прототипы</p></div>
+        </div>
+        <p class="small" style="margin-top: 8px;">Финальный дизайн с типографикой, цветами, изображениями и интерактивными элементами.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ==================== FRAME 10: DELIVERABLES ==================== -->
+<div id="deliverables" class="frame light-bg" style="padding-bottom: 80px;">
+  <div class="frame-label">Frame 10 — Окончание работы (1440 x auto)</div>
+  <div class="section-header">
+    <h2>Окончание работы</h2>
+    <div class="divider"></div>
+  </div>
+
+  <div class="container">
+    <p style="text-align: center; margin-top: 24px; max-width: 700px; margin-left: auto; margin-right: auto;">
+      По окончанию работы со мной вы получаете:
+    </p>
+
+    <div style="margin-top: 48px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px;">
+      <!-- Card 1 -->
+      <div class="card" style="padding: 32px 24px; text-align: center;">
+        <div style="width: 56px; height: 56px; border-radius: 50%; background: #A4B494; margin: 0 auto 16px; display: flex; align-items: center; justify-content: center;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </div>
+        <h4 style="font-size: 18px; margin-bottom: 8px;">Исследование</h4>
+        <p class="small">Полное исследование вашей ниши, ваших пользователей и ваших конкурентов</p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card" style="padding: 32px 24px; text-align: center;">
+        <div style="width: 56px; height: 56px; border-radius: 50%; background: #A4B494; margin: 0 auto 16px; display: flex; align-items: center; justify-content: center;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <h4 style="font-size: 18px; margin-bottom: 8px;">Дизайн</h4>
+        <p class="small">Дизайн сайта или мобильного приложения</p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card" style="padding: 32px 24px; text-align: center;">
+        <div style="width: 56px; height: 56px; border-radius: 50%; background: #A4B494; margin: 0 auto 16px; display: flex; align-items: center; justify-content: center;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <h4 style="font-size: 18px; margin-bottom: 8px;">Тестирование</h4>
+        <p class="small">Тестированный финальный дизайн сайта или мобильного приложения</p>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="card" style="padding: 32px 24px; text-align: center;">
+        <div style="width: 56px; height: 56px; border-radius: 50%; background: #EAD3B8; margin: 0 auto 16px; display: flex; align-items: center; justify-content: center;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4A3024" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        </div>
+        <h4 style="font-size: 18px; margin-bottom: 8px;">Бренд-гид</h4>
+        <p class="small">Бренд-гид и любые принтабельные материалы, которые вам нужны</p>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="card" style="padding: 32px 24px; text-align: center;">
+        <div style="width: 56px; height: 56px; border-radius: 50%; background: #EAD3B8; margin: 0 auto 16px; display: flex; align-items: center; justify-content: center;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4A3024" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        </div>
+        <h4 style="font-size: 18px; margin-bottom: 8px;">AI-фотографии</h4>
+        <p class="small">Сгенерированные фотореалистичные изображения для ваших маркетинговых материалов</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ==================== FRAME 11: CONTACTS ==================== -->
+<div id="contacts" class="frame dark" style="min-height: 500px;">
+  <div class="frame-label" style="color: #666;">Frame 7 — Контакты (1440 x 500)</div>
+  <div class="contact-block">
+    <h2>Давайте работать вместе</h2>
+    <div class="divider" style="background: #A4B494;"></div>
+    <div class="contact-info">
+      <a href="mailto:nlefterova445@gmail.com">nlefterova445@gmail.com</a>
+      <a href="tel:+352691123623">+352 691 123 623</a>
+    </div>
+    <div class="socials">
+      <a href="https://t.me/+352691123623" target="_blank" title="Telegram" style="padding: 0;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#747373"><path d="M11.944 0A12 12 0 1 0 24 12.056A12.01 12.01 0 0 0 11.944 0Zm5.654 7.326c-.18 1.897-.962 6.502-1.36 8.627c-.168.9-.499 1.201-.82 1.23c-.696.065-1.225-.46-1.9-.902c-1.056-.693-1.653-1.124-2.678-1.8c-1.185-.78-.417-1.21.258-1.91c.177-.184 3.247-2.977 3.307-3.23c.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345c-.48.33-.913.492-1.302.484c-.428-.008-1.252-.241-1.865-.44c-.752-.244-1.349-.374-1.297-.789c.027-.216.325-.437.893-.663c3.498-1.524 5.83-2.529 6.998-3.014c3.332-1.386 4.025-1.627 4.476-1.635c.099-.002.321.023.465.141a.506.506 0 0 1 .171.325c.016.093.036.306.02.472Z"/></svg>
+      </a>
+      <a href="https://wa.me/352691123623" target="_blank" title="WhatsApp" style="padding: 0;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#747373"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967c-.273-.099-.471-.148-.67.15c-.197.297-.767.966-.94 1.164c-.173.199-.347.223-.644.075c-.297-.15-1.255-.463-2.39-1.475c-.883-.788-1.48-1.761-1.653-2.059c-.173-.297-.018-.458.13-.606c.134-.133.298-.347.446-.52c.149-.174.198-.298.298-.497c.099-.198.05-.371-.025-.52c-.075-.149-.669-1.612-.916-2.207c-.242-.579-.487-.5-.669-.51c-.173-.008-.371-.01-.57-.01c-.198 0-.52.074-.792.372c-.272.297-1.04 1.016-1.04 2.479c0 1.462 1.065 2.875 1.213 3.074c.149.198 2.096 3.2 5.077 4.487c.709.306 1.262.489 1.694.625c.712.227 1.36.195 1.871.118c.571-.085 1.758-.719 2.006-1.413c.248-.694.248-1.289.173-1.413c-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214l-3.741.982l.998-3.648l-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884c2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+      </a>
+    </div>
+    <p class="small" style="margin-top: 48px; color: #747373;">&copy; 2026 Natalia Lefterova</p>
+  </div>
+</div>
+
+<!-- Contact Modal -->
+<div id="contactModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); z-index: 9999; align-items: center; justify-content: center;" onclick="if(event.target===this)this.style.display='none'">
+  <div style="background: #fff; border-radius: 16px; padding: 40px; width: 400px; position: relative; box-shadow: 0 12px 48px rgba(0,0,0,0.15);">
+    <!-- Close button -->
+    <div onclick="document.getElementById('contactModal').style.display='none'" style="position: absolute; top: 16px; right: 16px; width: 32px; height: 32px; cursor: pointer; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: #F5F5F5;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4A4A4A" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </div>
+
+    <h3 style="font-size: 24px; margin-bottom: 8px;">Связаться</h3>
+    <div style="width: 40px; height: 2px; background: #A4B494; margin-bottom: 28px;"></div>
+
+    <!-- Phone -->
+    <a href="tel:+352691123623" style="display: flex; align-items: center; gap: 16px; text-decoration: none; margin-bottom: 20px;">
+      <div style="width: 44px; height: 44px; border-radius: 50%; background: #A4B494; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </div>
+      <span style="font-size: 15px; color: #4A4A4A; font-weight: 500;">+352 691 123 623</span>
+    </a>
+
+    <!-- Email -->
+    <a href="mailto:nlefterova445@gmail.com" style="display: flex; align-items: center; gap: 16px; text-decoration: none; margin-bottom: 20px;">
+      <div style="width: 44px; height: 44px; border-radius: 50%; background: #A4B494; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </div>
+      <span style="font-size: 15px; color: #4A4A4A; font-weight: 500;">nlefterova445@gmail.com</span>
+    </a>
+
+    <!-- Telegram -->
+    <a href="https://t.me/+352691123623" target="_blank" style="display: flex; align-items: center; gap: 16px; text-decoration: none; margin-bottom: 20px;">
+      <div style="width: 44px; height: 44px; border-radius: 50%; background: #A4B494; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M11.944 0A12 12 0 1 0 24 12.056A12.01 12.01 0 0 0 11.944 0Zm5.654 7.326c-.18 1.897-.962 6.502-1.36 8.627c-.168.9-.499 1.201-.82 1.23c-.696.065-1.225-.46-1.9-.902c-1.056-.693-1.653-1.124-2.678-1.8c-1.185-.78-.417-1.21.258-1.91c.177-.184 3.247-2.977 3.307-3.23c.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345c-.48.33-.913.492-1.302.484c-.428-.008-1.252-.241-1.865-.44c-.752-.244-1.349-.374-1.297-.789c.027-.216.325-.437.893-.663c3.498-1.524 5.83-2.529 6.998-3.014c3.332-1.386 4.025-1.627 4.476-1.635c.099-.002.321.023.465.141a.506.506 0 0 1 .171.325c.016.093.036.306.02.472Z"/></svg>
+      </div>
+      <span style="font-size: 15px; color: #4A4A4A; font-weight: 500;">Telegram</span>
+    </a>
+
+    <!-- WhatsApp -->
+    <a href="https://wa.me/352691123623" target="_blank" style="display: flex; align-items: center; gap: 16px; text-decoration: none;">
+      <div style="width: 44px; height: 44px; border-radius: 50%; background: #A4B494; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967c-.273-.099-.471-.148-.67.15c-.197.297-.767.966-.94 1.164c-.173.199-.347.223-.644.075c-.297-.15-1.255-.463-2.39-1.475c-.883-.788-1.48-1.761-1.653-2.059c-.173-.297-.018-.458.13-.606c.134-.133.298-.347.446-.52c.149-.174.198-.298.298-.497c.099-.198.05-.371-.025-.52c-.075-.149-.669-1.612-.916-2.207c-.242-.579-.487-.5-.669-.51c-.173-.008-.371-.01-.57-.01c-.198 0-.52.074-.792.372c-.272.297-1.04 1.016-1.04 2.479c0 1.462 1.065 2.875 1.213 3.074c.149.198 2.096 3.2 5.077 4.487c.709.306 1.262.489 1.694.625c.712.227 1.36.195 1.871.118c.571-.085 1.758-.719 2.006-1.413c.248-.694.248-1.289.173-1.413c-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214l-3.741.982l.998-3.648l-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884c2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+      </div>
+      <span style="font-size: 15px; color: #4A4A4A; font-weight: 500;">WhatsApp</span>
+    </a>
+  </div>
+</div>
+
+<script>
+// On page load, scroll to top and clear hash
+if (window.location.hash) {
+  history.replaceState(null, null, window.location.pathname);
+  window.scrollTo(0, 0);
+}
+// Also clear hash after clicking anchor links
+document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+  a.addEventListener('click', function() {
+    setTimeout(function() {
+      history.replaceState(null, null, window.location.pathname);
+    }, 1000);
+  });
+});
+</script>
+
+</body>
+</html>

@@ -84,6 +84,11 @@ p { font-size: 16px; line-height: 1.6; color: #4A4A4A; }
   padding: 16px 32px;
   border-radius: 8px;
   text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.btn:hover {
+  background: #8fa882;
+  transform: translateY(-2px);
 }
 .btn-text {
   display: inline-block;
@@ -92,6 +97,10 @@ p { font-size: 16px; line-height: 1.6; color: #4A4A4A; }
   font-size: 14px;
   text-decoration: underline;
   margin-left: 16px;
+  transition: color 0.2s ease;
+}
+.btn-text:hover {
+  color: #8fa882;
 }
 
 /* Cards */
@@ -241,6 +250,10 @@ nav .nav-links a {
   font-weight: 500;
   color: #4A4A4A;
   text-decoration: none;
+  transition: color 0.2s ease;
+}
+nav .nav-links a:hover {
+  color: #A4B494;
 }
 
 /* Dropdown */
@@ -527,15 +540,15 @@ nav .nav-links a {
         <h4 style="font-size: 20px; margin-bottom: 20px;">Навыки и инструменты</h4>
         <div class="tags">
           <span class="tag">Figma</span>
-          <span class="tag">UX Research</span>
-          <span class="tag">UI Design</span>
-          <span class="tag">Wireframing</span>
-          <span class="tag">Prototyping</span>
+          <span class="tag">UX-исследования</span>
+          <span class="tag">UI-дизайн</span>
+          <span class="tag">Вайрфрейминг</span>
+          <span class="tag">Прототипирование</span>
           <span class="tag">Брендинг</span>
           <span class="tag">Копирайтинг</span>
-          <span class="tag">AI Image Generation</span>
+          <span class="tag">AI-генерация изображений</span>
           <span class="tag">Vibe Design</span>
-          <span class="tag">User Testing</span>
+          <span class="tag">Пользовательское тестирование</span>
         </div>
         <h4 style="font-size: 20px; margin-top: 32px; margin-bottom: 16px;">Языки</h4>
         <div class="tags">
@@ -636,7 +649,7 @@ nav .nav-links a {
       </p>
       <div class="meta" style="margin-top: 12px;">
         <span>Роль: UX/UI дизайнер</span>
-        <span>Сайт: <a href="https://paws-up.shop" target="_blank" style="color: #747373; text-decoration: underline;">paws-up.shop</a></span>
+        <span>Сайт: <a href="https://paws-up.shop" target="_blank" style="color: #747373; text-decoration: underline; transition: color 0.2s ease;" onmouseover="this.style.color='#A4B494'" onmouseout="this.style.color='#747373'">paws-up.shop</a></span>
         <span>Инструменты: Figma</span>
       </div>
     </div>
@@ -840,7 +853,7 @@ nav .nav-links a {
       </p>
       <div class="meta" style="margin-top: 12px;">
         <span>Роль: Дизайнер / AI-художник</span>
-        <span>Сайты: <a href="https://kartelboats.ru" target="_blank" style="color: #747373; text-decoration: underline;">kartelboats.ru</a>, <a href="https://expedition65.ru" target="_blank" style="color: #747373; text-decoration: underline;">expedition65.ru</a> (в разработке)</span>
+        <span>Сайты: <a href="https://kartelboats.ru" target="_blank" style="color: #747373; text-decoration: underline; transition: color 0.2s ease;" onmouseover="this.style.color='#A4B494'" onmouseout="this.style.color='#747373'">kartelboats.ru</a>, <a href="https://expedition65.ru" target="_blank" style="color: #747373; text-decoration: underline; transition: color 0.2s ease;" onmouseover="this.style.color='#A4B494'" onmouseout="this.style.color='#747373'">expedition65.ru</a> (в разработке)</span>
         <span>Инструменты: Figma, AI</span>
       </div>
     </div>

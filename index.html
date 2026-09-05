@@ -64,10 +64,6 @@ p { font-size: 16px; line-height: 1.6; color: #4A4A4A; }
 .cs-list li:before { content: ""; position: absolute; left: 0; top: 10px; width: 8px; height: 1.5px; background: #A4B494; }
 .cs-list li b { color: #1B1B1B; font-weight: 600; }
 .cs-result { background: #fff; border-left: 3px solid #A4B494; padding: 28px 32px; margin-top: 40px; border-radius: 0 12px 12px 0; }
-.draft { position: relative; }
-.draft:after { content: "ЧЕРНОВИК — ПОДТВЕРДИТЬ"; display: inline-block; margin-left: 10px; font-size: 9px;
-  font-weight: 600; letter-spacing: 0.14em; color: #b58b4c; background: #f7ecd9; padding: 3px 8px;
-  border-radius: 3px; vertical-align: middle; }
 
 /* Colors */
 .sage { color: #A4B494; }
@@ -944,15 +940,9 @@ nav .nav-links a:hover {
         <span>Инструменты: Figma, AI</span>
       </div>
 
-      <div class="cs-grid">
-        <div class="cs-block">
-          <h4 data-i18n="kartel.context_title">Контекст</h4>
-          <p data-i18n="kartel.context_body">Kartel Boats — российская верфь с двумя линейками: серийные катера T-Rex и хаусботы Expedition, которые строятся под индивидуальный заказ. Работа охватывает цифровое присутствие бренда целиком: сайты, визуальный контент и маркетинговые материалы.</p>
-        </div>
-        <div class="cs-block">
-          <h4 class="draft" data-i18n="kartel.brief_title">Задача</h4>
-          <p data-i18n="kartel.brief_body">Показать продукт на том уровне, на котором он находится. Главное ограничение — фотоконтент: часть моделей ещё не построена, а существующие съёмки не передают интерьеры так, как их видит покупатель.</p>
-        </div>
+      <div class="cs-block" style="margin-top: 36px; max-width: 760px;">
+        <h4 data-i18n="kartel.context_title">Контекст</h4>
+        <p data-i18n="kartel.context_body">Kartel Boats — российская верфь с двумя линейками: серийные катера T-Rex и хаусботы Expedition, которые строятся под индивидуальный заказ. Работа охватывает цифровое присутствие бренда целиком: сайты, визуальный контент и маркетинговые материалы.</p>
       </div>
     </div>
 
@@ -1160,21 +1150,7 @@ nav .nav-links a:hover {
       <div class="img-card" style="background: #fff;"><img src="images/booklet_p_exp65.jpg" loading="lazy" style="width: 100%;"></div>
     </div>
 
-    <!-- Key decisions -->
-    <div class="section">
-      <h3 class="draft" data-i18n="kartel.decisions_title">Ключевые решения</h3>
-      <ul class="cs-list" data-i18n-html="kartel.decisions_list">
-        <li><b>AI-генерация вместо фотосъёмки.</b> Снимать нестроенные лодки невозможно, а павильонная съёмка интерьеров стоит дороже, чем весь digital-бюджет. Генерация даёт каталог до спуска на воду.</li>
-        <li><b>Точность вместо «красивой картинки».</b> Изображения повторяют реальную геометрию объектов — меняются только мебель и декор. Покупатель видит ту лодку, которую получит.</li>
-        <li><b>SEO и GEO с самого начала.</b> Структура и тексты закладывались под поиск и под генеративную выдачу, а не дописывались после запуска.</li>
-      </ul>
-    </div>
 
-    <!-- Result -->
-    <div class="cs-result">
-      <h4 class="draft" data-i18n="kartel.result_title">Результат</h4>
-      <p style="margin-top: 8px;" data-i18n="kartel.result_body">НУЖЕН ТВОЙ ВВОД — что запустилось, что изменилось, сколько материалов сделано, реакция заказчика.</p>
-    </div>
   </div>
 </div>
 
@@ -1632,12 +1608,6 @@ var translations = {
     'kartel.redesign_p3': 'Технические характеристики',
     'kartel.context_title': 'Контекст',
     'kartel.context_body': 'Kartel Boats — российская верфь с двумя линейками: серийные катера T-Rex и хаусботы Expedition, которые строятся под индивидуальный заказ. Работа охватывает цифровое присутствие бренда целиком: сайты, визуальный контент и маркетинговые материалы.',
-    'kartel.brief_title': 'Задача',
-    'kartel.brief_body': 'Показать продукт на том уровне, на котором он находится. Главное ограничение — фотоконтент: часть моделей ещё не построена, а существующие съёмки не передают интерьеры так, как их видит покупатель.',
-    'kartel.decisions_title': 'Ключевые решения',
-    'kartel.decisions_list': '<li><b>AI-генерация вместо фотосъёмки.</b> Снимать нестроенные лодки невозможно, а павильонная съёмка интерьеров стоит дороже, чем весь digital-бюджет. Генерация даёт каталог до спуска на воду.</li><li><b>Точность вместо «красивой картинки».</b> Изображения повторяют реальную геометрию объектов — меняются только мебель и декор. Покупатель видит ту лодку, которую получит.</li><li><b>SEO и GEO с самого начала.</b> Структура и тексты закладывались под поиск и под генеративную выдачу, а не дописывались после запуска.</li>',
-    'kartel.result_title': 'Результат',
-    'kartel.result_body': 'НУЖЕН ТВОЙ ВВОД — что запустилось, что изменилось, сколько материалов сделано, реакция заказчика.',
 
     // Process
     'process.title': 'Мой процесс',
@@ -1809,12 +1779,6 @@ var translations = {
     'kartel.redesign_p3': 'Specifications',
     'kartel.context_title': 'Context',
     'kartel.context_body': 'Kartel Boats is a Russian shipyard with two lines: the T-Rex series powerboats and the Expedition houseboats, each built to order. The work covers the brand digital presence end to end: websites, visual content and marketing materials.',
-    'kartel.brief_title': 'The brief',
-    'kartel.brief_body': 'Present the product at the level it actually sits. The main constraint was imagery: some models were not yet built, and the existing photography did not convey the interiors the way a buyer sees them.',
-    'kartel.decisions_title': 'Key decisions',
-    'kartel.decisions_list': '<li><b>AI generation instead of a photo shoot.</b> Unbuilt boats cannot be photographed, and a studio interior shoot costs more than the entire digital budget. Generation delivers a catalogue before launch day.</li><li><b>Accuracy over a pretty picture.</b> The images reproduce the real geometry of each vessel — only furniture and decor change. The buyer sees the boat they will actually receive.</li><li><b>SEO and GEO from the start.</b> Structure and copy were built for search and for generative answers, rather than bolted on after launch.</li>',
-    'kartel.result_title': 'Outcome',
-    'kartel.result_body': 'NEEDS YOUR INPUT — what shipped, what changed, how many assets were produced, what the client said.',
 
     // Process
     'process.title': 'My Process',
@@ -1986,12 +1950,6 @@ var translations = {
     'kartel.redesign_p3': 'Caractéristiques techniques',
     'kartel.context_title': 'Contexte',
     'kartel.context_body': 'Kartel Boats est un chantier naval russe avec deux gammes : les vedettes de série T-Rex et les house-boats Expedition, construits sur commande. La mission couvre toute la présence numérique de la marque : sites web, contenu visuel et supports marketing.',
-    'kartel.brief_title': 'La demande',
-    'kartel.brief_body': 'Montrer le produit au niveau qui est réellement le sien. La contrainte principale était l\'imagerie : certains modèles n\'étaient pas encore construits, et les photos existantes ne rendaient pas les intérieurs tels que l\'acheteur les voit.',
-    'kartel.decisions_title': 'Décisions clés',
-    'kartel.decisions_list': '<li><b>Génération par IA plutôt que séance photo.</b> Un bateau non construit ne peut pas être photographié, et une séance en studio coûte plus cher que tout le budget digital. La génération fournit un catalogue avant la mise à l\'eau.</li><li><b>La justesse avant la jolie image.</b> Les images reproduisent la géométrie réelle de chaque bateau — seuls le mobilier et la décoration changent. L\'acheteur voit le bateau qu\'il recevra.</li><li><b>SEO et GEO dès le départ.</b> La structure et les textes ont été conçus pour la recherche et pour les réponses génératives, et non ajoutés après le lancement.</li>',
-    'kartel.result_title': 'Résultat',
-    'kartel.result_body': 'BESOIN DE TON INPUT — ce qui a été livré, ce qui a changé, combien de supports produits, la réaction du client.',
 
     // Process
     'process.title': 'Mon processus',

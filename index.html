@@ -55,6 +55,20 @@ p { font-size: 16px; line-height: 1.6; color: #4A4A4A; }
 .small { font-size: 14px; color: #747373; }
 .caption { font-size: 12px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: #A4B494; }
 
+/* Case study blocks */
+.cs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px; }
+.cs-block h4 { margin-bottom: 10px; }
+.cs-block p { color: #4A4A4A; }
+.cs-list { list-style: none; margin-top: 18px; }
+.cs-list li { position: relative; padding-left: 22px; margin-bottom: 14px; font-size: 16px; line-height: 1.6; }
+.cs-list li:before { content: ""; position: absolute; left: 0; top: 10px; width: 8px; height: 1.5px; background: #A4B494; }
+.cs-list li b { color: #1B1B1B; font-weight: 600; }
+.cs-result { background: #fff; border-left: 3px solid #A4B494; padding: 28px 32px; margin-top: 40px; border-radius: 0 12px 12px 0; }
+.draft { position: relative; }
+.draft:after { content: "ЧЕРНОВИК — ПОДТВЕРДИТЬ"; display: inline-block; margin-left: 10px; font-size: 9px;
+  font-weight: 600; letter-spacing: 0.14em; color: #b58b4c; background: #f7ecd9; padding: 3px 8px;
+  border-radius: 3px; vertical-align: middle; }
+
 /* Colors */
 .sage { color: #A4B494; }
 .beige { color: #EAD3B8; }
@@ -929,6 +943,17 @@ nav .nav-links a:hover {
         <span>Сайты: <a href="https://kartelboats.ru" target="_blank" style="color: #747373; text-decoration: underline; transition: color 0.2s ease;" onmouseover="this.style.color='#A4B494'" onmouseout="this.style.color='#747373'">kartelboats.ru</a>, <a href="https://expedition65.ru" target="_blank" style="color: #747373; text-decoration: underline; transition: color 0.2s ease;" onmouseover="this.style.color='#A4B494'" onmouseout="this.style.color='#747373'">expedition65.ru</a> (в разработке)</span>
         <span>Инструменты: Figma, AI</span>
       </div>
+
+      <div class="cs-grid">
+        <div class="cs-block">
+          <h4 data-i18n="kartel.context_title">Контекст</h4>
+          <p data-i18n="kartel.context_body">Kartel Boats — российская верфь с двумя линейками: серийные катера T-Rex и хаусботы Expedition, которые строятся под индивидуальный заказ. Работа охватывает цифровое присутствие бренда целиком: сайты, визуальный контент и маркетинговые материалы.</p>
+        </div>
+        <div class="cs-block">
+          <h4 class="draft" data-i18n="kartel.brief_title">Задача</h4>
+          <p data-i18n="kartel.brief_body">Показать продукт на том уровне, на котором он находится. Главное ограничение — фотоконтент: часть моделей ещё не построена, а существующие съёмки не передают интерьеры так, как их видит покупатель.</p>
+        </div>
+      </div>
     </div>
 
     <!-- Website creation -->
@@ -957,6 +982,136 @@ nav .nav-links a:hover {
       </div>
     </div>
 
+    <!-- Website redesign -->
+    <div class="section">
+      <h3 style="display: inline-block;" data-i18n="kartel.redesign_title">Редизайн сайта</h3>
+      <span style="display: inline-block; margin-left: 12px; font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #A4B494; border: 1px solid #A4B494; border-radius: 20px; padding: 4px 11px; vertical-align: middle;" data-i18n="kartel.redesign_badge">В разработке</span>
+      <p style="margin-top: 10px; margin-bottom: 4px; max-width: 760px;" data-i18n="kartel.redesign_desc">Полная переработка сайта Expedition 65 Lux: от тёмной темы с акцентным лаймом к светлой редакционной подаче, где работает реальная фотография судна, а характеристики читаются как документ, а не как рекламный блок.</p>
+      <p class="small" style="margin-bottom: 8px;" data-i18n-html="kartel.redesign_link">Текущая версия: <a href="https://nlefterova.github.io/Houseboat-website/" target="_blank" style="color: #747373; text-decoration: underline;" onmouseover="this.style.color='#A4B494'" onmouseout="this.style.color='#747373'">посмотреть сайт</a></p>
+
+      <p class="small" style="margin-top: 28px; margin-bottom: 10px; color: #1B1B1B; font-weight: 600;" data-i18n="kartel.redesign_p1"></p>
+      <div class="before-after" style="align-items: start;">
+        <div>
+          <p class="ba-label" style="margin-bottom: 8px;" data-i18n="common.before">До</p>
+          <div class="img-card"><img src="images/kartel_old_hero.jpg" loading="lazy" style="width: 100%;"></div>
+        </div>
+        <div class="arrow" style="align-self: center; padding-top: 20px;">&rarr;</div>
+        <div>
+          <p class="ba-label" style="margin-bottom: 8px;" data-i18n="common.after">После</p>
+          <div class="img-card"><img src="images/kartel_new_hero.jpg" loading="lazy" style="width: 100%;"></div>
+        </div>
+      </div>
+
+      <p class="small" style="margin-top: 28px; margin-bottom: 10px; color: #1B1B1B; font-weight: 600;" data-i18n="kartel.redesign_p2"></p>
+      <div class="before-after" style="align-items: start;">
+        <div>
+          <p class="ba-label" style="margin-bottom: 8px;" data-i18n="common.before">До</p>
+          <div class="img-card"><img src="images/kartel_old_interior.jpg" loading="lazy" style="width: 100%;"></div>
+        </div>
+        <div class="arrow" style="align-self: center; padding-top: 20px;">&rarr;</div>
+        <div>
+          <p class="ba-label" style="margin-bottom: 8px;" data-i18n="common.after">После</p>
+          <div class="img-card"><img src="images/kartel_new_interior.jpg" loading="lazy" style="width: 100%;"></div>
+        </div>
+      </div>
+
+      <p class="small" style="margin-top: 28px; margin-bottom: 10px; color: #1B1B1B; font-weight: 600;" data-i18n="kartel.redesign_p3"></p>
+      <div class="before-after" style="align-items: start;">
+        <div>
+          <p class="ba-label" style="margin-bottom: 8px;" data-i18n="common.before">До</p>
+          <div class="img-card"><img src="images/kartel_old_spec.jpg" loading="lazy" style="width: 100%;"></div>
+        </div>
+        <div class="arrow" style="align-self: center; padding-top: 20px;">&rarr;</div>
+        <div>
+          <p class="ba-label" style="margin-bottom: 8px;" data-i18n="common.after">После</p>
+          <div class="img-card"><img src="images/kartel_new_spec.jpg" loading="lazy" style="width: 100%;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Deck layouts -->
+    <div class="section">
+      <h3 data-i18n="kartel.plans_title">Планировки палуб</h3>
+      <p style="margin-top: 8px; margin-bottom: 24px; max-width: 760px;" data-i18n="kartel.plans_desc">Планировки трёх палуб и профиль судна, подготовленные для интерактивного просмотра: переключение между палубами без перезагрузки страницы, единый масштаб и единая подача чертежей.</p>
+
+      <div class="img-card" style="margin-bottom: 10px;"><img src="images/kartel_plans_ui.jpg" loading="lazy" style="width: 100%;"></div>
+      <p class="small" style="margin-bottom: 32px;" data-i18n="kartel.plans_ui_cap">Переключатель палуб на сайте</p>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px 28px;">
+        <div>
+          <p class="ba-label" style="margin-bottom: 8px;" data-i18n="kartel.plan_upper"></p>
+          <div class="img-card" style="background: #fff;"><img src="images/kartel_plan_upper.png" loading="lazy" style="width: 100%;"></div>
+        </div>
+        <div>
+          <p class="ba-label" style="margin-bottom: 8px;" data-i18n="kartel.plan_main"></p>
+          <div class="img-card" style="background: #fff;"><img src="images/kartel_plan_main.png" loading="lazy" style="width: 100%;"></div>
+        </div>
+        <div>
+          <p class="ba-label" style="margin-bottom: 8px;" data-i18n="kartel.plan_lower"></p>
+          <div class="img-card" style="background: #fff;"><img src="images/kartel_plan_lower.png" loading="lazy" style="width: 100%;"></div>
+        </div>
+        <div>
+          <p class="ba-label" style="margin-bottom: 8px;" data-i18n="kartel.plan_profile"></p>
+          <div class="img-card" style="background: #fff;"><img src="images/kartel_plan_profile.png" loading="lazy" style="width: 100%;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Heritage archive site -->
+    <div class="section">
+      <h3 style="display: inline-block;" data-i18n="artel.title">Сайт-архив «Корабельная Артель»</h3>
+      <span style="display: inline-block; margin-left: 12px; font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #A4B494; border: 1px solid #A4B494; border-radius: 20px; padding: 4px 11px; vertical-align: middle;" data-i18n="artel.badge">В разработке</span>
+      <p style="margin-top: 10px; margin-bottom: 24px; max-width: 760px;" data-i18n="artel.desc">Историко-архивный сайт верфи в Саратове, работающей с 1992 года. Отдельная айдентика от коммерческого бренда: тёмно-синий и латунь, рукописный логотип как единственный декоративный элемент, остальная типографика — строгая. В основе — реестр судов: каждая лодка получает полную карточку, а там, где есть история владельца, она поднимается наверх.</p>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+        <div>
+          <p class="ba-label" style="margin-bottom: 8px;" data-i18n="artel.page_landing"></p>
+          <div class="img-card"><img src="images/artel_landing.jpg" loading="lazy" style="width: 100%;"></div>
+        </div>
+        <div>
+          <p class="ba-label" style="margin-bottom: 8px;" data-i18n="artel.page_fleet"></p>
+          <div class="img-card"><img src="images/artel_fleet.jpg" loading="lazy" style="width: 100%;"></div>
+        </div>
+        <div>
+          <p class="ba-label" style="margin-bottom: 8px;" data-i18n="artel.page_boat"></p>
+          <div class="img-card"><img src="images/artel_boat_trex44cr.jpg" loading="lazy" style="width: 100%;"></div>
+        </div>
+        <div>
+          <p class="ba-label" style="margin-bottom: 8px;" data-i18n="artel.page_gallery"></p>
+          <div class="img-card"><img src="images/artel_boat_spec.jpg" loading="lazy" style="width: 100%;"></div>
+        </div>
+      </div>
+
+      <h4 style="margin-top: 40px;" data-i18n="artel.vec_title">Векторизация чертежей</h4>
+      <p style="margin-top: 8px; margin-bottom: 24px; max-width: 760px;" data-i18n="artel.vec_desc">Обводы судов, отрисованные вручную в Figma по исходным чертежам верфи. Единая толщина линии и общий стиль подачи для всего флота — чтобы карточки разных лодок читались как один каталог, а не как набор разнородных сканов.</p>
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px 28px;">
+        <div>
+          <p class="ba-label" style="margin-bottom: 8px;" data-i18n="artel.vec_1"></p>
+          <div class="img-card" style="background: #fff;"><img src="images/vec_fiesta_side.png" loading="lazy" style="width: 100%;"></div>
+        </div>
+        <div>
+          <p class="ba-label" style="margin-bottom: 8px;" data-i18n="artel.vec_2"></p>
+          <div class="img-card" style="background: #fff;"><img src="images/vec_siberian_side.png" loading="lazy" style="width: 100%;"></div>
+        </div>
+        <div>
+          <p class="ba-label" style="margin-bottom: 8px;" data-i18n="artel.vec_3"></p>
+          <div class="img-card" style="background: #fff;"><img src="images/vec_natali_side.png" loading="lazy" style="width: 100%;"></div>
+        </div>
+        <div>
+          <p class="ba-label" style="margin-bottom: 8px;" data-i18n="artel.vec_4"></p>
+          <div class="img-card" style="background: #fff;"><img src="images/vec_trex40_top.png" loading="lazy" style="width: 100%;"></div>
+        </div>
+        <div>
+          <p class="ba-label" style="margin-bottom: 8px;" data-i18n="artel.vec_5"></p>
+          <div class="img-card" style="background: #fff;"><img src="images/vec_trex44cr_top.png" loading="lazy" style="width: 100%;"></div>
+        </div>
+        <div>
+          <p class="ba-label" style="margin-bottom: 8px;" data-i18n="artel.vec_6"></p>
+          <div class="img-card" style="background: #fff;"><img src="images/vec_trex44fly_top.png" loading="lazy" style="width: 100%;"></div>
+        </div>
+      </div>
+    </div>
+
     <!-- AI Generated images -->
     <div class="section">
       <h3 data-i18n="kartel.ai_title">AI-генерация изображений</h3>
@@ -979,6 +1134,46 @@ nav .nav-links a:hover {
         <div class="img-item"><img src="images/houseboat_kitchen.jpeg"></div>
         <div class="img-item"><img src="images/kartel_branded_3.jpg"></div>
       </div>
+    </div>
+
+    <!-- Booklets: electronic -->
+    <div class="section">
+      <h3 data-i18n="booklet.e_title">Электронные буклеты</h3>
+      <p style="margin-top: 8px; margin-bottom: 4px; max-width: 780px;" data-i18n="booklet.e_desc">Серия каталогов для трёх судов в единой системе: чёрный фон, лаймовый акцент, полоса «Архитектура судна» с чертежами палуб и полноформатный разворот-настроение. Вертикальный A4, 12 полос — версия для экрана и рассылки.</p>
+      <p class="ba-label" style="margin-top: 26px; margin-bottom: 8px;" data-i18n="booklet.cr"></p>
+      <div class="img-card" style="background: #fff;"><img src="images/booklet_e_trex44cr.jpg" loading="lazy" style="width: 100%;"></div>
+      <p class="ba-label" style="margin-top: 26px; margin-bottom: 8px;" data-i18n="booklet.fly"></p>
+      <div class="img-card" style="background: #fff;"><img src="images/booklet_e_trex44fly.jpg" loading="lazy" style="width: 100%;"></div>
+      <p class="ba-label" style="margin-top: 26px; margin-bottom: 8px;" data-i18n="booklet.exp"></p>
+      <div class="img-card" style="background: #fff;"><img src="images/booklet_e_exp65.jpg" loading="lazy" style="width: 100%;"></div>
+    </div>
+
+    <!-- Booklets: print -->
+    <div class="section">
+      <h3 data-i18n="booklet.p_title">Печатные буклеты</h3>
+      <p style="margin-top: 8px; margin-bottom: 4px; max-width: 780px;" data-i18n="booklet.p_desc">Печатные версии тех же каталогов: своя обложка, свой порядок полос и собственный отбор фотографий под бумагу. Собраны в высоком разрешении под типографию — от 8 до 14 полос в зависимости от судна.</p>
+      <p class="ba-label" style="margin-top: 26px; margin-bottom: 8px;" data-i18n="booklet.cr"></p>
+      <div class="img-card" style="background: #fff;"><img src="images/booklet_p_trex44cr.jpg" loading="lazy" style="width: 100%;"></div>
+      <p class="ba-label" style="margin-top: 26px; margin-bottom: 8px;" data-i18n="booklet.fly"></p>
+      <div class="img-card" style="background: #fff;"><img src="images/booklet_p_trex44fly.jpg" loading="lazy" style="width: 100%;"></div>
+      <p class="ba-label" style="margin-top: 26px; margin-bottom: 8px;" data-i18n="booklet.exp"></p>
+      <div class="img-card" style="background: #fff;"><img src="images/booklet_p_exp65.jpg" loading="lazy" style="width: 100%;"></div>
+    </div>
+
+    <!-- Key decisions -->
+    <div class="section">
+      <h3 class="draft" data-i18n="kartel.decisions_title">Ключевые решения</h3>
+      <ul class="cs-list" data-i18n-html="kartel.decisions_list">
+        <li><b>AI-генерация вместо фотосъёмки.</b> Снимать нестроенные лодки невозможно, а павильонная съёмка интерьеров стоит дороже, чем весь digital-бюджет. Генерация даёт каталог до спуска на воду.</li>
+        <li><b>Точность вместо «красивой картинки».</b> Изображения повторяют реальную геометрию объектов — меняются только мебель и декор. Покупатель видит ту лодку, которую получит.</li>
+        <li><b>SEO и GEO с самого начала.</b> Структура и тексты закладывались под поиск и под генеративную выдачу, а не дописывались после запуска.</li>
+      </ul>
+    </div>
+
+    <!-- Result -->
+    <div class="cs-result">
+      <h4 class="draft" data-i18n="kartel.result_title">Результат</h4>
+      <p style="margin-top: 8px;" data-i18n="kartel.result_body">НУЖЕН ТВОЙ ВВОД — что запустилось, что изменилось, сколько материалов сделано, реакция заказчика.</p>
     </div>
   </div>
 </div>
@@ -1399,6 +1594,50 @@ var translations = {
     'kartel.ai_desc': 'Создание фотореалистичных изображений интерьеров и экстерьеров лодок для каталогов и маркетинговых материалов. Изображения идентичны оригинальным объектам с добавлением мебели и элементов декора.',
     'kartel.branded_title': 'Брендированные фотографии',
     'kartel.branded_desc': 'Интеграция брендированных элементов — текстиль, аксессуары — в AI-сгенерированные интерьеры для маркетинговых материалов.',
+    'booklet.e_title': 'Электронные буклеты',
+    'booklet.e_desc': 'Серия каталогов для трёх судов в единой системе: чёрный фон, лаймовый акцент, полоса «Архитектура судна» с чертежами палуб и полноформатный разворот-настроение. Вертикальный A4, 12 полос — версия для экрана и рассылки.',
+    'booklet.p_title': 'Печатные буклеты',
+    'booklet.p_desc': 'Печатные версии тех же каталогов: своя обложка, свой порядок полос и собственный отбор фотографий под бумагу. Собраны в высоком разрешении под типографию — от 8 до 14 полос в зависимости от судна.',
+    'booklet.cr': 'T-Rex 44 CR',
+    'booklet.fly': 'T-Rex 44 Fly',
+    'booklet.exp': 'Expedition 65 Lux',
+    'artel.title': 'Сайт-архив «Корабельная Артель»',
+    'artel.badge': 'В разработке',
+    'artel.desc': 'Историко-архивный сайт верфи в Саратове, работающей с 1992 года. Отдельная айдентика от коммерческого бренда: тёмно-синий и латунь, рукописный логотип как единственный декоративный элемент, остальная типографика — строгая. В основе — реестр судов: каждая лодка получает полную карточку, а там, где есть история владельца, она поднимается наверх.',
+    'artel.page_landing': 'Главная',
+    'artel.page_fleet': 'Флот',
+    'artel.page_boat': 'Карточка судна — T-Rex 44 CR',
+    'artel.page_gallery': 'Технические характеристики',
+    'artel.vec_title': 'Векторизация чертежей',
+    'artel.vec_desc': 'Обводы судов, отрисованные вручную в Figma по исходным чертежам верфи. Единая толщина линии и общий стиль подачи для всего флота — чтобы карточки разных лодок читались как один каталог, а не как набор разнородных сканов.',
+    'artel.vec_1': 'Fiesta — борт',
+    'artel.vec_2': 'Siberian — борт',
+    'artel.vec_3': 'Natali — борт',
+    'artel.vec_4': 'T-Rex 40 — планировка',
+    'artel.vec_5': 'T-Rex 44 CR — планировка',
+    'artel.vec_6': 'T-Rex 44 Fly — планировка',
+    'kartel.plans_title': 'Планировки палуб',
+    'kartel.plans_desc': 'Планировки трёх палуб и профиль судна, подготовленные для интерактивного просмотра: переключение между палубами без перезагрузки страницы, единый масштаб и единая подача чертежей.',
+    'kartel.plans_ui_cap': 'Переключатель палуб на сайте',
+    'kartel.plan_upper': 'Верхняя палуба',
+    'kartel.plan_main': 'Главная палуба',
+    'kartel.plan_lower': 'Нижняя палуба',
+    'kartel.plan_profile': 'Профиль',
+    'kartel.redesign_title': 'Редизайн сайта',
+    'kartel.redesign_badge': 'В разработке',
+    'kartel.redesign_desc': 'Полная переработка сайта Expedition 65 Lux: от тёмной темы с акцентным лаймом к светлой редакционной подаче, где работает реальная фотография судна, а характеристики читаются как документ, а не как рекламный блок.',
+    'kartel.redesign_link': 'Текущая версия: <a href="https://nlefterova.github.io/Houseboat-website/" target="_blank" style="color: #747373; text-decoration: underline;" onmouseover="this.style.color=\'#A4B494\'" onmouseout="this.style.color=\'#747373\'">посмотреть сайт</a>',
+    'kartel.redesign_p1': 'Первый экран',
+    'kartel.redesign_p2': 'Интерьер',
+    'kartel.redesign_p3': 'Технические характеристики',
+    'kartel.context_title': 'Контекст',
+    'kartel.context_body': 'Kartel Boats — российская верфь с двумя линейками: серийные катера T-Rex и хаусботы Expedition, которые строятся под индивидуальный заказ. Работа охватывает цифровое присутствие бренда целиком: сайты, визуальный контент и маркетинговые материалы.',
+    'kartel.brief_title': 'Задача',
+    'kartel.brief_body': 'Показать продукт на том уровне, на котором он находится. Главное ограничение — фотоконтент: часть моделей ещё не построена, а существующие съёмки не передают интерьеры так, как их видит покупатель.',
+    'kartel.decisions_title': 'Ключевые решения',
+    'kartel.decisions_list': '<li><b>AI-генерация вместо фотосъёмки.</b> Снимать нестроенные лодки невозможно, а павильонная съёмка интерьеров стоит дороже, чем весь digital-бюджет. Генерация даёт каталог до спуска на воду.</li><li><b>Точность вместо «красивой картинки».</b> Изображения повторяют реальную геометрию объектов — меняются только мебель и декор. Покупатель видит ту лодку, которую получит.</li><li><b>SEO и GEO с самого начала.</b> Структура и тексты закладывались под поиск и под генеративную выдачу, а не дописывались после запуска.</li>',
+    'kartel.result_title': 'Результат',
+    'kartel.result_body': 'НУЖЕН ТВОЙ ВВОД — что запустилось, что изменилось, сколько материалов сделано, реакция заказчика.',
 
     // Process
     'process.title': 'Мой процесс',
@@ -1532,6 +1771,50 @@ var translations = {
     'kartel.ai_desc': 'Creating photorealistic images of boat interiors and exteriors for catalogs and marketing materials. Images are identical to the original objects with added furniture and decor.',
     'kartel.branded_title': 'Branded Photos',
     'kartel.branded_desc': 'Integration of branded elements — textiles, accessories — into AI-generated interiors for marketing materials.',
+    'booklet.e_title': 'Digital Booklets',
+    'booklet.e_desc': 'A catalogue series for three vessels on one system: black ground, lime accent, an architecture spread carrying the deck drawings, and a full-bleed mood page. Portrait A4, 12 pages — the version built for screen and for sending out.',
+    'booklet.p_title': 'Print Booklets',
+    'booklet.p_desc': 'Print versions of the same catalogues: their own cover, their own page order and a separate photo edit chosen for paper. Prepared at press resolution — 8 to 14 pages depending on the vessel.',
+    'booklet.cr': 'T-Rex 44 CR',
+    'booklet.fly': 'T-Rex 44 Fly',
+    'booklet.exp': 'Expedition 65 Lux',
+    'artel.title': 'Korabelnaya Artel — Archive Site',
+    'artel.badge': 'In progress',
+    'artel.desc': 'A history and archive site for the Saratov shipyard, working since 1992. A separate identity from the commercial brand: navy and brass, a script logo as the single decorative element, with the rest of the typography kept plain. The spine is a vessel registry: every boat gets a complete record, and where an owner story exists, that boat is elevated.',
+    'artel.page_landing': 'Home',
+    'artel.page_fleet': 'Fleet',
+    'artel.page_boat': 'Vessel page — T-Rex 44 CR',
+    'artel.page_gallery': 'Specifications',
+    'artel.vec_title': 'Vectorised Drawings',
+    'artel.vec_desc': 'Hull profiles traced by hand in Figma from the shipyard original drawings. A single stroke weight and one presentation style across the whole fleet, so cards for different boats read as one catalogue rather than a pile of mismatched scans.',
+    'artel.vec_1': 'Fiesta — profile',
+    'artel.vec_2': 'Siberian — profile',
+    'artel.vec_3': 'Natali — profile',
+    'artel.vec_4': 'T-Rex 40 — layout',
+    'artel.vec_5': 'T-Rex 44 CR — layout',
+    'artel.vec_6': 'T-Rex 44 Fly — layout',
+    'kartel.plans_title': 'Deck Layouts',
+    'kartel.plans_desc': 'Layouts for all three decks plus the vessel profile, prepared for interactive viewing: switching between decks without a page reload, on a single scale and in a single drawing style.',
+    'kartel.plans_ui_cap': 'Deck switcher on the site',
+    'kartel.plan_upper': 'Upper deck',
+    'kartel.plan_main': 'Main deck',
+    'kartel.plan_lower': 'Lower deck',
+    'kartel.plan_profile': 'Profile',
+    'kartel.redesign_title': 'Website Redesign',
+    'kartel.redesign_badge': 'In progress',
+    'kartel.redesign_desc': 'A full rework of the Expedition 65 Lux site: from a dark theme with lime accents to a light editorial treatment where real photography of the vessel does the work, and the specifications read as a document rather than an advertising block.',
+    'kartel.redesign_link': 'Current version: <a href="https://nlefterova.github.io/Houseboat-website/" target="_blank" style="color: #747373; text-decoration: underline;" onmouseover="this.style.color=\'#A4B494\'" onmouseout="this.style.color=\'#747373\'">view the site</a>',
+    'kartel.redesign_p1': 'Above the fold',
+    'kartel.redesign_p2': 'Interior',
+    'kartel.redesign_p3': 'Specifications',
+    'kartel.context_title': 'Context',
+    'kartel.context_body': 'Kartel Boats is a Russian shipyard with two lines: the T-Rex series powerboats and the Expedition houseboats, each built to order. The work covers the brand digital presence end to end: websites, visual content and marketing materials.',
+    'kartel.brief_title': 'The brief',
+    'kartel.brief_body': 'Present the product at the level it actually sits. The main constraint was imagery: some models were not yet built, and the existing photography did not convey the interiors the way a buyer sees them.',
+    'kartel.decisions_title': 'Key decisions',
+    'kartel.decisions_list': '<li><b>AI generation instead of a photo shoot.</b> Unbuilt boats cannot be photographed, and a studio interior shoot costs more than the entire digital budget. Generation delivers a catalogue before launch day.</li><li><b>Accuracy over a pretty picture.</b> The images reproduce the real geometry of each vessel — only furniture and decor change. The buyer sees the boat they will actually receive.</li><li><b>SEO and GEO from the start.</b> Structure and copy were built for search and for generative answers, rather than bolted on after launch.</li>',
+    'kartel.result_title': 'Outcome',
+    'kartel.result_body': 'NEEDS YOUR INPUT — what shipped, what changed, how many assets were produced, what the client said.',
 
     // Process
     'process.title': 'My Process',
@@ -1665,6 +1948,50 @@ var translations = {
     'kartel.ai_desc': 'Création d\'images photoréalistes d\'intérieurs et d\'extérieurs de bateaux pour les catalogues et supports marketing. Les images sont identiques aux objets originaux avec ajout de meubles et éléments de décor.',
     'kartel.branded_title': 'Photos de marque',
     'kartel.branded_desc': 'Intégration d\'éléments de marque — textiles, accessoires — dans les intérieurs générés par AI pour les supports marketing.',
+    'booklet.e_title': 'Brochures numériques',
+    'booklet.e_desc': 'Une série de catalogues pour trois bateaux sur un même système : fond noir, accent citron vert, une page d\'architecture portant les plans de ponts et une page d\'ambiance à fond perdu. A4 portrait, 12 pages — la version pensée pour l\'écran et l\'envoi.',
+    'booklet.p_title': 'Brochures imprimées',
+    'booklet.p_desc': 'Versions imprimées des mêmes catalogues : couverture propre, ordre des pages propre et une sélection photo distincte choisie pour le papier. Préparées en haute résolution pour l\'imprimeur — de 8 à 14 pages selon le bateau.',
+    'booklet.cr': 'T-Rex 44 CR',
+    'booklet.fly': 'T-Rex 44 Fly',
+    'booklet.exp': 'Expedition 65 Lux',
+    'artel.title': 'Korabelnaya Artel — site d\'archives',
+    'artel.badge': 'En cours',
+    'artel.desc': 'Un site d\'histoire et d\'archives pour le chantier naval de Saratov, en activité depuis 1992. Une identité distincte de la marque commerciale : bleu marine et laiton, un logo manuscrit comme unique élément décoratif, le reste de la typographie restant sobre. La colonne vertébrale est un registre des navires : chaque bateau reçoit une fiche complète, et là où existe une histoire de propriétaire, ce bateau est mis en avant.',
+    'artel.page_landing': 'Accueil',
+    'artel.page_fleet': 'Flotte',
+    'artel.page_boat': 'Fiche navire — T-Rex 44 CR',
+    'artel.page_gallery': 'Caractéristiques techniques',
+    'artel.vec_title': 'Vectorisation des plans',
+    'artel.vec_desc': 'Profils de coque tracés à la main dans Figma à partir des plans d\'origine du chantier. Une épaisseur de trait unique et un style de présentation commun à toute la flotte, pour que les fiches des différents bateaux se lisent comme un seul catalogue et non comme des scans disparates.',
+    'artel.vec_1': 'Fiesta — profil',
+    'artel.vec_2': 'Siberian — profil',
+    'artel.vec_3': 'Natali — profil',
+    'artel.vec_4': 'T-Rex 40 — aménagement',
+    'artel.vec_5': 'T-Rex 44 CR — aménagement',
+    'artel.vec_6': 'T-Rex 44 Fly — aménagement',
+    'kartel.plans_title': 'Plans des ponts',
+    'kartel.plans_desc': 'Les plans des trois ponts et le profil du bateau, préparés pour une consultation interactive : passage d\'un pont à l\'autre sans rechargement, à une échelle unique et dans un style de dessin unifié.',
+    'kartel.plans_ui_cap': 'Sélecteur de pont sur le site',
+    'kartel.plan_upper': 'Pont supérieur',
+    'kartel.plan_main': 'Pont principal',
+    'kartel.plan_lower': 'Pont inférieur',
+    'kartel.plan_profile': 'Profil',
+    'kartel.redesign_title': 'Refonte du site',
+    'kartel.redesign_badge': 'En cours',
+    'kartel.redesign_desc': 'Refonte complète du site Expedition 65 Lux : d\'un thème sombre à accents citron vert vers un traitement éditorial clair, où la photographie réelle du bateau fait le travail et où les caractéristiques se lisent comme un document plutôt que comme un encart publicitaire.',
+    'kartel.redesign_link': 'Version actuelle : <a href="https://nlefterova.github.io/Houseboat-website/" target="_blank" style="color: #747373; text-decoration: underline;" onmouseover="this.style.color=\'#A4B494\'" onmouseout="this.style.color=\'#747373\'">voir le site</a>',
+    'kartel.redesign_p1': 'Première vue',
+    'kartel.redesign_p2': 'Intérieur',
+    'kartel.redesign_p3': 'Caractéristiques techniques',
+    'kartel.context_title': 'Contexte',
+    'kartel.context_body': 'Kartel Boats est un chantier naval russe avec deux gammes : les vedettes de série T-Rex et les house-boats Expedition, construits sur commande. La mission couvre toute la présence numérique de la marque : sites web, contenu visuel et supports marketing.',
+    'kartel.brief_title': 'La demande',
+    'kartel.brief_body': 'Montrer le produit au niveau qui est réellement le sien. La contrainte principale était l\'imagerie : certains modèles n\'étaient pas encore construits, et les photos existantes ne rendaient pas les intérieurs tels que l\'acheteur les voit.',
+    'kartel.decisions_title': 'Décisions clés',
+    'kartel.decisions_list': '<li><b>Génération par IA plutôt que séance photo.</b> Un bateau non construit ne peut pas être photographié, et une séance en studio coûte plus cher que tout le budget digital. La génération fournit un catalogue avant la mise à l\'eau.</li><li><b>La justesse avant la jolie image.</b> Les images reproduisent la géométrie réelle de chaque bateau — seuls le mobilier et la décoration changent. L\'acheteur voit le bateau qu\'il recevra.</li><li><b>SEO et GEO dès le départ.</b> La structure et les textes ont été conçus pour la recherche et pour les réponses génératives, et non ajoutés après le lancement.</li>',
+    'kartel.result_title': 'Résultat',
+    'kartel.result_body': 'BESOIN DE TON INPUT — ce qui a été livré, ce qui a changé, combien de supports produits, la réaction du client.',
 
     // Process
     'process.title': 'Mon processus',
